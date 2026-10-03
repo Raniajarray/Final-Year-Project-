@@ -35,10 +35,7 @@
 - [Utilisation](#-utilisation)
 - [Captures d'écran](#-captures-décran)
 - [Résultats](#-résultats)
-- [Tests](#-tests)
 - [Perspectives](#-perspectives)
-- [Contribution](#-contribution)
-- [Licence](#-licence)
 - [Auteur](#-auteur)
 
 ---
