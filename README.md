@@ -751,24 +751,6 @@ Plusieurs améliorations peuvent être envisagées :
 
 ---
 
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! Voici comment procéder :
-
-1. Forkez le projet
-2. Créez une branche (`git checkout -b feature/AmazingFeature`)
-3. Committez vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. Poussez vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrez une Pull Request
-
----
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
----
-
 ## 👩‍💻 Auteur
 
 **Rania Jarray**
@@ -780,7 +762,7 @@ Ingénieure Cybersécurité & DevSecOps
 📌 **Thème :**  
 Plateforme DevSecOps intelligente avec détection d'anomalies applicatives et automatisation des alertes par l'intelligence artificielle
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/rania-jarray)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/jarray-rania-652195203/)
 
 ---
 
@@ -791,6 +773,4 @@ Plateforme DevSecOps intelligente avec détection d'anomalies applicatives et au
 *Projet réalisé dans le cadre du PFE — TEK-UP × 2025/2026*
 
 </div>
-```
-
 ---
