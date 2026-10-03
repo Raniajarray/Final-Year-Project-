@@ -33,7 +33,6 @@
 - [Structure du Projet](#-structure-du-projet)
 - [Installation & Lancement](#-installation--lancement)
 - [Utilisation](#-utilisation)
-- [Démo](#-démo)
 - [Captures d'écran](#-captures-décran)
 - [Résultats](#-résultats)
 - [Tests](#-tests)
@@ -598,20 +597,6 @@ docker compose up -d
 docker ps
 ```
 
-### Lancer le backend
-
-```bash
-./mvnw spring-boot:run
-```
-
-### Lancer le frontend
-
-```bash
-cd frontend
-npm install
-npm start
-```
-
 ### Lancer l'assistant SOC
 
 ```bash
@@ -701,29 +686,6 @@ Quelques résultats obtenus durant le projet :
 - Centralisation de **plusieurs millions d'événements** dans OpenSearch
 - Détection d'anomalies basée sur **Random Cut Forest**
 
----
-
-## 🧪 Tests
-
-### Backend
-
-```bash
-./mvnw test
-```
-
-### Frontend
-
-```bash
-cd frontend
-npm test
-```
-
-### Assistant SOC
-
-```bash
-cd soc-chatbot
-pytest
-```
 
 ---
 
@@ -763,4 +725,3 @@ Plateforme DevSecOps intelligente avec détection d'anomalies applicatives et au
 *Projet réalisé dans le cadre du PFE — TEK-UP × 2025/2026*
 
 </div>
----
