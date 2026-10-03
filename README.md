@@ -169,11 +169,13 @@ La plateforme repose sur plusieurs composants complémentaires :
 │ Scikit-learn │ RAG  │  │  Logs (OpenSearch) │ GitLab API      │
 │ Mistral/Ollama│ NLP │  │  Prometheus │ Filebeat │ Trivy       │
 └─────────────────────┘  └─────────────────────────────────────┘
-🔄 Pipeline DevSecOps
+---
+## 🔄 Pipeline DevSecOps
 Le pipeline CI/CD automatise les différentes étapes nécessaires à la construction, au test et à la sécurisation de l'application.
 
 Étapes principales
-text
+---
+
 Code
  │
  ▼
@@ -205,17 +207,19 @@ DAST
  │
  ▼
 Registry
-🔐 Sécurité du Pipeline
+---
+## 🔐 Sécurité du Pipeline
 Plusieurs contrôles de sécurité sont intégrés directement dans le pipeline CI/CD.
 
-Contrôle	Outil	Objectif
-SAST	SonarQube	Analyse statique du code
-SCA	OWASP Dependency-Check	Détection des dépendances vulnérables
-SCA	npm audit	Analyse des dépendances frontend
-Container Security	Trivy	Analyse des images Docker
-Secrets	Gitleaks	Détection des secrets exposés
-IaC Security	Checkov	Analyse de la configuration IaC
-DAST	OWASP ZAP	Tests dynamiques de sécurité
+Contrôle  	        Outil	                                  Objectif
+SAST                  	SonarQube                      	Analyse statique du code
+SCA	                    OWASP Dependency-Check	        Détection des dépendances vulnérables
+SCA	                    npm audit                      	Analyse des dépendances frontend
+Container Security	    Trivy	                          Analyse des images Docker
+Secrets                	Gitleaks	                      Détection des secrets exposés
+IaC Security	          Checkov	                        Analyse de la configuration IaC
+DAST	                  OWASP ZAP	                      Tests dynamiques de sécurité
+---
 🔎 Quality Gates
 Les principaux objectifs du pipeline sont notamment :
 
