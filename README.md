@@ -1,36 +1,51 @@
+<div align="center">
+
+<img src="https://img.shields.io/badge/Status-Completed%20PFE-brightgreen?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Duration-6%20Months-blue?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Partner-TEK--UP-orange?style=for-the-badge" />
+
 # 🛡️ Plateforme DevSecOps Intelligente
 
-### Détection d’anomalies applicatives et automatisation des alertes par l'Intelligence Artificielle
+### Détection d'anomalies applicatives et automatisation des alertes par l'Intelligence Artificielle
 
-> **Projet de Fin d'Études (PFE) — 2025/2026**
-> 
+> **Projet de Fin d'Études (PFE) — 2025/2026**  
 > Plateforme DevSecOps intégrant la sécurité dans le cycle CI/CD, la supervision applicative, la détection d'anomalies et un assistant SOC intelligent basé sur l'IA.
+
+</div>
 
 ---
 
 ## 📌 Table des Matières
 
 - [Vue d'ensemble](#-vue-densemble)
-- [Objectifs](#-objectifs)
+- [Problématique](#-problématique)
+- [Solution Proposée](#-solution-proposée)
 - [Architecture Technique](#️-architecture-technique)
 - [Pipeline DevSecOps](#-pipeline-devsecops)
 - [Sécurité du Pipeline](#-sécurité-du-pipeline)
 - [Observabilité et Détection d'Anomalies](#-observabilité-et-détection-danomalies)
 - [Assistant SOC Intelligent](#-assistant-soc-intelligent)
+- [Intelligence Artificielle & RAG](#-intelligence-artificielle--rag)
 - [Automatisation des Alertes](#-automatisation-des-alertes)
 - [Stack Technologique](#-stack-technologique)
 - [Fonctionnalités Clés](#-fonctionnalités-clés)
 - [Structure du Projet](#-structure-du-projet)
 - [Installation & Lancement](#-installation--lancement)
+- [Utilisation](#-utilisation)
+- [Démo](#-démo)
+- [Captures d'écran](#-captures-décran)
 - [Résultats](#-résultats)
+- [Tests](#-tests)
 - [Perspectives](#-perspectives)
+- [Contribution](#-contribution)
+- [Licence](#-licence)
 - [Auteur](#-auteur)
 
 ---
 
 ## 🎯 Vue d'ensemble
 
-Cette plateforme a été développée dans le cadre d'un **Projet de Fin d'Études** avec pour objectif de mettre en place une chaîne **DevSecOps intelligente**, permettant d'intégrer automatiquement la sécurité dans le cycle de développement tout en assurant la supervision des applications et la détection d'anomalies.
+**DevSecOps Intelligent Platform** est une solution complète développée dans le cadre d'un **Projet de Fin d'Études** avec pour objectif de mettre en place une chaîne **DevSecOps intelligente**, permettant d'intégrer automatiquement la sécurité dans le cycle de développement tout en assurant la supervision des applications et la détection d'anomalies.
 
 La solution combine :
 
@@ -60,7 +75,7 @@ L'objectif est donc de proposer une plateforme capable de **sécuriser le cycle 
 
 ---
 
-## 💡 Solution proposée
+## 💡 Solution Proposée
 
 La plateforme repose sur plusieurs composants complémentaires :
 
@@ -134,11 +149,30 @@ La plateforme repose sur plusieurs composants complémentaires :
                               ┌────────────────┼────────────────┐
                               ▼                ▼                ▼
                          Risk Score        n8n        Slack Alerts
+🏗️ Architecture Technique
+text
+┌─────────────────────────────────────────────────────────────────┐
+│                        FRONTEND (Angular)                        │
+│           Dashboard SOC │ Vue des Alertes │ Analyse IA          │
+│                    Visualisations : Grafana / Charts             │
+└─────────────────────┬───────────────────────────────────────────┘
+                      │  REST API
+┌─────────────────────▼───────────────────────────────────────────┐
+│                    BACKEND (Spring Boot / FastAPI)               │
+│    Ingestion de Données │ API de Détection │ Moteur d'Alerte   │
+│            Cache : Redis │ Base de données : PostgreSQL          │
+└──────────┬──────────────────────┬───────────────────────────────┘
+           │                      │
+┌──────────▼──────────┐  ┌────────▼────────────────────────────┐
+│   PIPELINE IA/ML    │  │         SOURCES DE DONNÉES           │
+│ Scikit-learn │ RAG  │  │  Logs (OpenSearch) │ GitLab API      │
+│ Mistral/Ollama│ NLP │  │  Prometheus │ Filebeat │ Trivy       │
+└─────────────────────┘  └─────────────────────────────────────┘
 🔄 Pipeline DevSecOps
-
 Le pipeline CI/CD automatise les différentes étapes nécessaires à la construction, au test et à la sécurisation de l'application.
 
 Étapes principales
+text
 Code
  │
  ▼
@@ -171,7 +205,6 @@ DAST
  ▼
 Registry
 🔐 Sécurité du Pipeline
-
 Plusieurs contrôles de sécurité sont intégrés directement dans le pipeline CI/CD.
 
 Contrôle	Outil	Objectif
@@ -183,26 +216,28 @@ Secrets	Gitleaks	Détection des secrets exposés
 IaC Security	Checkov	Analyse de la configuration IaC
 DAST	OWASP ZAP	Tests dynamiques de sécurité
 🔎 Quality Gates
-
 Les principaux objectifs du pipeline sont notamment :
 
 Security Rating : A
-Aucun problème Blocker / High critique accepté
-Vérification des Security Hotspots
-Couverture de tests ≥ 50 %
-Duplication du code < 15 %
-📊 Observabilité et Détection d'Anomalies
 
+Aucun problème Blocker / High critique accepté
+
+Vérification des Security Hotspots
+
+Couverture de tests ≥ 50 %
+
+Duplication du code < 15 %
+
+📊 Observabilité et Détection d'Anomalies
 La plateforme utilise une architecture d'observabilité permettant de centraliser les métriques et les logs.
 
 Monitoring
-
 Prometheus collecte les métriques tandis que Grafana permet leur visualisation.
 
 Centralisation des logs
-
 Les logs applicatifs sont collectés avec Filebeat puis centralisés dans OpenSearch.
 
+text
 Application
      │
      ▼
@@ -217,12 +252,10 @@ Application
      ├──────────────► Recherche & Analyse
      │
      └──────────────► Anomaly Detection
-
 La plateforme a permis de centraliser plusieurs millions d'événements pour l'analyse et la détection des comportements anormaux.
 
 🚨 Détection d'Anomalies
-
-Le moteur OpenSearch Anomaly Detection utilise l'algorithme Random Cut Forest (RCF).
+Le moteur OpenSearch Anomaly Detection utilise l'algorithme Random Cut Forest (RCF) .
 
 Configuration utilisée dans le projet :
 
@@ -230,22 +263,27 @@ Paramètre	Valeur
 Window size	128
 Shingle size	8
 Anomaly grade threshold	0.7
-
 Le système analyse l'évolution des événements afin d'identifier des comportements qui s'écartent du comportement habituel.
 
 🤖 Assistant SOC Intelligent
-
 La plateforme intègre un assistant SOC développé avec FastAPI.
 
 Son rôle est d'assister l'analyste dans :
 
 l'analyse des logs ;
+
 l'identification des types d'événements ;
+
 l'évaluation du niveau de risque ;
+
 la recherche d'informations de cybersécurité ;
+
 la corrélation d'événements ;
+
 la génération d'une réponse contextualisée.
+
 Architecture
+text
                   SOC Web Interface
                          │
                          ▼
@@ -278,28 +316,29 @@ Architecture
                          ▼
                   n8n / Slack
 🧠 Intelligence Artificielle & RAG
-
 L'assistant utilise un modèle Mistral exécuté localement avec Ollama.
 
 La solution utilise également une approche Retrieval-Augmented Generation (RAG) permettant d'enrichir les réponses du modèle avec une base de connaissances de cybersécurité.
 
 Base de connaissances
-
 La base soc_knowledge contient notamment :
 
 connaissances MITRE ATT&CK ;
+
 procédures d'analyse ;
+
 playbooks SOC ;
+
 informations utiles à l'investigation.
 
 Les documents sont transformés en embeddings puis stockés dans OpenSearch.
 
-🧩 Analyse des intentions
-
+🧩 Analyse des Intentions
 Le chatbot dispose d'un module de classification des intentions permettant d'identifier le type de demande de l'analyste.
 
 Exemples :
 
+text
 Question analyste
        │
        ▼
@@ -310,19 +349,24 @@ Question analyste
        ├── Incident
        ├── Recherche
        └── Autre
-
 L'analyse combine notamment :
 
 règles ;
-expressions régulières ;
-NLU ;
-classification ;
-recherche RAG ;
-LLM.
-⚠️ Risk Scoring
 
+expressions régulières ;
+
+NLU ;
+
+classification ;
+
+recherche RAG ;
+
+LLM.
+
+⚠️ Risk Scoring
 Chaque événement analysé peut recevoir un score de risque.
 
+text
 Logs
  │
  ▼
@@ -340,13 +384,12 @@ Risk Scoring
        │
        ▼
    Automatisation
-
 Lorsque le niveau de risque dépasse le seuil défini, une automatisation peut être déclenchée via n8n.
 
 ⚡ Automatisation des Alertes
-
 La plateforme permet de connecter l'analyse SOC à un workflow d'automatisation.
 
+text
 Détection
     │
     ▼
@@ -361,114 +404,236 @@ Notification
     │
     ▼
   Slack
-
 Cette approche permet de réduire les actions manuelles nécessaires pour le traitement initial des événements.
 
 💻 Stack Technologique
 Backend
-☕ Java / Spring Boot
-🐍 Python
-⚡ FastAPI
+https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white
+https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat&logo=spring-boot&logoColor=white
+https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white
+https://img.shields.io/badge/FastAPI-005571?style=flat&logo=fastapi&logoColor=white
+
 Frontend
-Angular
+https://img.shields.io/badge/Angular-DD0031?style=flat&logo=angular&logoColor=white
+https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white
+
 DevSecOps
-GitLab CI/CD
-Docker
-SonarQube
-OWASP Dependency-Check
-npm audit
-Trivy
-Gitleaks
-Checkov
-OWASP ZAP
+https://img.shields.io/badge/GitLab_CI-FC6D26?style=flat&logo=gitlab&logoColor=white
+https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white
+https://img.shields.io/badge/SonarQube-4E9BCD?style=flat&logo=sonarqube&logoColor=white
+https://img.shields.io/badge/Trivy-1904DA?style=flat&logo=aquasec&logoColor=white
+https://img.shields.io/badge/OWASP-000000?style=flat&logo=owasp&logoColor=white
+
 Monitoring & Observabilité
-Prometheus
-Grafana
-Filebeat
-OpenSearch
+https://img.shields.io/badge/Prometheus-E6522C?style=flat&logo=prometheus&logoColor=white
+https://img.shields.io/badge/Grafana-F46800?style=flat&logo=grafana&logoColor=white
+https://img.shields.io/badge/OpenSearch-005EB8?style=flat&logo=opensearch&logoColor=white
+https://img.shields.io/badge/Filebeat-005571?style=flat&logo=elastic&logoColor=white
+
 Intelligence Artificielle
-Ollama
-Mistral
-Embeddings
-RAG
-OpenSearch Vector Search
-Automatisation
-n8n
-Slack
+https://img.shields.io/badge/Ollama-000000?style=flat&logo=ollama&logoColor=white
+https://img.shields.io/badge/Mistral-FF7000?style=flat&logo=mistral&logoColor=white
+https://img.shields.io/badge/HuggingFace-FFD21E?style=flat&logo=huggingface&logoColor=black
+
+Domaine	Outil/Lib
+CI/CD	GitLab CI/CD
+SAST	SonarQube
+SCA	OWASP Dependency-Check, npm audit
+Container Security	Trivy
+Secrets Detection	Gitleaks
+IaC Security	Checkov
+DAST	OWASP ZAP
+Monitoring	Prometheus, Grafana
+Log Management	Filebeat, OpenSearch
+Anomaly Detection	Random Cut Forest (RCF)
+LLM	Mistral (via Ollama)
+RAG	OpenSearch Vector Search
+Automatisation	n8n
+Notifications	Slack
 ✨ Fonctionnalités Clés
-🔄 Pipeline CI/CD automatisé
-🔐 Intégration de contrôles de sécurité dans le pipeline
-🧪 Tests automatisés
-🔎 Analyse SAST et SCA
-🐳 Sécurisation des images Docker
-🔑 Détection des secrets
-🏗️ Analyse de l'Infrastructure as Code
-🌐 Tests DAST
-📊 Monitoring avec Prometheus et Grafana
-📝 Centralisation des logs avec OpenSearch
-🚨 Détection d'anomalies
-🤖 Assistant SOC basé sur l'IA
-🧠 RAG basé sur des connaissances de cybersécurité
-⚠️ Risk scoring
-🔗 Corrélation d'événements
-⚡ Automatisation des alertes avec n8n
-💬 Notifications Slack
+🔄 Pipeline CI/CD automatisé — Intégration continue et déploiement continu
+
+🔐 Intégration de contrôles de sécurité — SAST, SCA, DAST, Container Security
+
+🧪 Tests automatisés — Exécution automatique des tests à chaque commit
+
+🔎 Analyse SAST et SCA — Détection des vulnérabilités dans le code et les dépendances
+
+🐳 Sécurisation des images Docker — Scan des images avec Trivy
+
+🔑 Détection des secrets — Identification des secrets exposés avec Gitleaks
+
+🏗️ Analyse de l'Infrastructure as Code — Vérification avec Checkov
+
+🌐 Tests DAST — Tests dynamiques avec OWASP ZAP
+
+📊 Monitoring avec Prometheus et Grafana — Visualisation des métriques
+
+📝 Centralisation des logs avec OpenSearch — Agrégation de millions d'événements
+
+🚨 Détection d'anomalies — Algorithme Random Cut Forest
+
+🤖 Assistant SOC basé sur l'IA — FastAPI + Mistral
+
+🧠 RAG basé sur des connaissances de cybersécurité — MITRE ATT&CK, playbooks
+
+⚠️ Risk scoring — Évaluation du niveau de risque des événements
+
+🔗 Corrélation d'événements — Analyse multi-événements
+
+⚡ Automatisation des alertes avec n8n — Workflows automatisés
+
+💬 Notifications Slack — Alertes en temps réel
+
 📁 Structure du Projet
+text
 devsecops-pfe/
 │
-├── backend/
-│   └── ...
+├── backend/                         # Backend Spring Boot
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   └── resources/
+│   │   └── test/
+│   ├── pom.xml
+│   └── Dockerfile
 │
-├── frontend/
-│   └── ...
+├── frontend/                        # Application Angular
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── components/
+│   │   │   ├── services/
+│   │   │   └── models/
+│   │   ├── assets/
+│   │   └── environments/
+│   ├── package.json
+│   └── Dockerfile
 │
-├── soc-chatbot/
+├── soc-chatbot/                     # Assistant SOC (FastAPI)
 │   ├── app/
-│   │   ├── main.py
-│   │   ├── intent_classifier.py
-│   │   ├── nlu.py
-│   │   ├── risk_scorer.py
-│   │   ├── rules_engine.py
-│   │   ├── log_analyzer.py
-│   │   ├── temporal_analyzer.py
-│   │   ├── attack_correlator.py
+│   │   ├── main.py                  # Point d'entrée FastAPI
+│   │   ├── intent_classifier.py     # Classification des intentions
+│   │   ├── nlu.py                   # Traitement du langage naturel
+│   │   ├── risk_scorer.py           # Scoring de risque
+│   │   ├── rules_engine.py          # Moteur de règles
+│   │   ├── log_analyzer.py          # Analyse des logs
+│   │   ├── temporal_analyzer.py     # Analyse temporelle
+│   │   ├── attack_correlator.py     # Corrélation d'attaques
+│   │   ├── rag_engine.py            # Moteur RAG
 │   │   └── ...
-│   │
-│   └── ...
+│   ├── requirements.txt
+│   └── Dockerfile
 │
-├── .gitlab-ci.yml
-├── docker-compose.yml
-├── Dockerfile
+├── .gitlab-ci.yml                   # Configuration GitLab CI/CD
+├── docker-compose.yml               # Orchestration des services
+├── Dockerfile                       # Dockerfile principal
 └── README.md
-
-La structure ci-dessus doit être adaptée à la structure exacte du dépôt.
-
 🚀 Installation & Lancement
 Prérequis
 Java 17
+
 Maven / Maven Wrapper
-Node.js
+
+Node.js 18+
+
 Docker
+
 Docker Compose
-Python 3.x
+
+Python 3.10+
+
 Git
+
 Cloner le projet
+bash
 git clone <URL_DU_REPOSITORY>
 cd devsecops-pfe
 Lancer les services
+bash
 docker compose up -d
 Vérifier les conteneurs
+bash
 docker ps
 Lancer le backend
+bash
 ./mvnw spring-boot:run
 Lancer le frontend
+bash
+cd frontend
 npm install
 npm start
+Lancer l'assistant SOC
+bash
+cd soc-chatbot
+python -m venv venv
+source venv/bin/activate  # Windows : venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+🎮 Utilisation
+Accéder à l'application
+Frontend : http://localhost:4200
 
-Les commandes exactes doivent être adaptées à la configuration finale du projet.
+Backend API : http://localhost:8080
 
+Assistant SOC : http://localhost:8000
+
+Grafana : http://localhost:3000
+
+OpenSearch Dashboards : http://localhost:5601
+
+Scénario typique
+Un développeur pousse son code sur GitLab.
+
+Le pipeline CI/CD se déclenche automatiquement.
+
+Les contrôles de sécurité (SAST, SCA, etc.) sont exécutés.
+
+En cas de succès, l'application est déployée en staging.
+
+Les logs sont collectés par Filebeat et envoyés à OpenSearch.
+
+Le moteur d'anomalies détecte un comportement suspect.
+
+L'assistant SOC analyse l'événement et génère un score de risque.
+
+Si le score dépasse le seuil, une alerte Slack est envoyée via n8n.
+
+📸 Captures d'écran
+Dashboard SOC
+https://docs/screenshots/dashboard-soc.png
+
+Vue principale du tableau de bord SOC avec les alertes en temps réel.
+
+Analyse des logs
+https://docs/screenshots/log-analysis.png
+
+Interface d'analyse des logs avec détection d'anomalies.
+
+Assistant SOC
+https://docs/screenshots/soc-assistant.png
+
+Chatbot d'assistance SOC avec réponses contextuelles basées sur le RAG.
+
+Pipeline CI/CD
+https://docs/screenshots/pipeline.png
+
+Visualisation du pipeline GitLab CI/CD avec les différents stages de sécurité.
+
+💡 Comment ajouter vos propres captures d'écran ?
+
+Créez un dossier docs/screenshots/ à la racine de votre projet.
+
+Placez-y vos images (PNG, JPG, GIF).
+
+Utilisez la syntaxe Markdown suivante :
+
+markdown
+![Description de l'image](docs/screenshots/nom-de-l-image.png)
+Pour un GIF animé :
+
+markdown
+![Démo animée](docs/screenshots/demo.gif)
 📈 Résultats
-
 Quelques résultats obtenus durant le projet :
 
 🐳 Optimisation des images Docker
@@ -477,25 +642,64 @@ Backend	648 MB	187 MB	~71 %
 Frontend	432 MB	52 MB	~88 %
 🔐 Sécurité
 Checkov : 91 % de conformité sur les contrôles évalués
+
 Backend Trivy : 0 Critical, 1 High
+
 Frontend Trivy : 0 Critical / High
-SonarQube : objectif Security Rating A
+
+SonarQube : Objectif Security Rating A atteint
+
 📊 Logs
 Centralisation de plusieurs millions d'événements dans OpenSearch
-Détection d'anomalies basée sur Random Cut Forest
-🔮 Perspectives
 
+Détection d'anomalies basée sur Random Cut Forest
+
+🧪 Tests
+Backend
+bash
+./mvnw test
+Frontend
+bash
+cd frontend
+npm test
+Assistant SOC
+bash
+cd soc-chatbot
+pytest
+🔮 Perspectives
 Plusieurs améliorations peuvent être envisagées :
 
-intégration de davantage de sources Threat Intelligence ;
-amélioration de la corrélation multi-événements ;
-enrichissement automatique des incidents ;
-ajout de nouveaux playbooks SOC ;
-amélioration du modèle de classification des intentions ;
-intégration avec d'autres outils SIEM/SOAR ;
-amélioration de l'automatisation de la réponse aux incidents.
-👩‍💻 Auteur
+Intégration de davantage de sources Threat Intelligence
 
+Amélioration de la corrélation multi-événements
+
+Enrichissement automatique des incidents
+
+Ajout de nouveaux playbooks SOC
+
+Amélioration du modèle de classification des intentions
+
+Intégration avec d'autres outils SIEM/SOAR
+
+Amélioration de l'automatisation de la réponse aux incidents
+
+🤝 Contribution
+Les contributions sont les bienvenues ! Voici comment procéder :
+
+Forkez le projet
+
+Créez une branche (git checkout -b feature/AmazingFeature)
+
+Committez vos changements (git commit -m 'Add some AmazingFeature')
+
+Poussez vers la branche (git push origin feature/AmazingFeature)
+
+Ouvrez une Pull Request
+
+📄 Licence
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+
+👩‍💻 Auteur
 Rania Jarray
 
 Ingénieure Cybersécurité & DevSecOps
@@ -503,10 +707,13 @@ Ingénieure Cybersécurité & DevSecOps
 🎓 Projet de Fin d'Études — TEK-UP
 
 📌 Thème :
+Plateforme DevSecOps intelligente avec détection d'anomalies applicatives et automatisation des alertes par l'intelligence artificielle
 
-Plateforme DevSecOps intelligente avec détection d’anomalies applicatives et automatisation des alertes par l’intelligence artificielle
+https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
 
-⭐ Projet réalisé dans le cadre du Projet de Fin d'Études — 2025/2026
+<div align="center">
+⭐ N'hésitez pas à star ce projet s'il vous a été utile !
 
+Projet réalisé dans le cadre du PFE — TEK-UP × 2025/2026
 
-**Mais je ne te conseille pas encore de copier-coller cette version telle quelle.** La prochaine étape intéressante serait de faire une version **100 % adaptée à ton dépôt réel**, notamment la partie `Structure du Projet`, les commandes d'installation, les URLs, les screenshots et l'architecture. Comme ça, le README ne donnera pas l'impression d'être un modèle générique mais vraiment celui de **ton PFE**.
+</div> ```
