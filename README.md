@@ -671,22 +671,10 @@ uvicorn app.main:app --reload
 
 ### Pipeline CI/CD
 
-![Pipeline CI/CD](pipe now.png)
+![Pipeline CI/CD](pipe-now.png)
 
 *Visualisation du pipeline GitLab CI/CD avec les différents stages de sécurité.*
 
-> **💡 Comment ajouter vos propres captures d'écran ?**
-> 
-> 1. Créez un dossier `docs/screenshots/` à la racine de votre projet.
-> 2. Placez-y vos images (PNG, JPG, GIF).
-> 3. Utilisez la syntaxe Markdown suivante :
->    ```markdown
->    ![Description de l'image](docs/screenshots/nom-de-l-image.png)
->    ```
-> 4. Pour un GIF animé :
->    ```markdown
->    ![Démo animée](docs/screenshots/demo.gif)
->    ```
 
 ---
 
