@@ -79,7 +79,7 @@ L'objectif est donc de proposer une plateforme capable de **sécuriser le cycle 
 
 La plateforme repose sur plusieurs composants complémentaires :
 
-```text
+
                     ┌──────────────────────────┐
                     │      Développeur         │
                     └────────────┬─────────────┘
@@ -149,8 +149,11 @@ La plateforme repose sur plusieurs composants complémentaires :
                               ┌────────────────┼────────────────┐
                               ▼                ▼                ▼
                          Risk Score        n8n        Slack Alerts
-🏗️ Architecture Technique
-text
+
+                         
+---
+##  🏗️ Architecture Technique
+
 ┌─────────────────────────────────────────────────────────────────┐
 │                        FRONTEND (Angular)                        │
 │           Dashboard SOC │ Vue des Alertes │ Analyse IA          │
@@ -168,7 +171,8 @@ text
 │ Scikit-learn │ RAG  │  │  Logs (OpenSearch) │ GitLab API      │
 │ Mistral/Ollama│ NLP │  │  Prometheus │ Filebeat │ Trivy       │
 └─────────────────────┘  └─────────────────────────────────────┘
-🔄 Pipeline DevSecOps
+---
+##  🔄 Pipeline DevSecOps
 Le pipeline CI/CD automatise les différentes étapes nécessaires à la construction, au test et à la sécurisation de l'application.
 
 Étapes principales
