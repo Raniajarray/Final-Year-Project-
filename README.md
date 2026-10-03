@@ -657,7 +657,8 @@ uvicorn app.main:app --reload
 
 ### Analyse des logs
 
-![Analyse des logs](docs/screenshots/log-analysis.png)
+![Analyse des logs](anomaly-detection-logs.png)
+![Analyse des logs](opensearch-alerts.png)
 
 *Interface d'analyse des logs avec détection d'anomalies.*
 
@@ -669,7 +670,7 @@ uvicorn app.main:app --reload
 
 ### Pipeline CI/CD
 
-![Pipeline CI/CD](docs/screenshots/pipeline.png)
+![Pipeline CI/CD](pipe now.png)
 
 *Visualisation du pipeline GitLab CI/CD avec les différents stages de sécurité.*
 
