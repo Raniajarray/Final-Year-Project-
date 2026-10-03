@@ -651,7 +651,7 @@ uvicorn app.main:app --reload
 
 ### Dashboard SOC
 
-![Dashboard SOC](docs/screenshots/dashboard-soc.png)
+![Dashboard SOC](1er-capt-dash.png)
 
 *Vue principale du tableau de bord SOC avec les alertes en temps réel.*
 
