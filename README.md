@@ -652,8 +652,9 @@ uvicorn app.main:app --reload
 ### Dashboard SOC
 
 ![Dashboard SOC](1er-capt-dash.png)
-
-*Vue principale du tableau de bord SOC avec les alertes en temps réel.*
+![Dashboard SOC](2eme-capt-dash.png)
+![Dashboard SOC](3eme-capt-dash.png)
+*Vue principale du tableau de bord DevSecOps avec les alertes en temps réel.*
 
 ### Analyse des logs
 
@@ -664,7 +665,7 @@ uvicorn app.main:app --reload
 
 ### Assistant SOC
 
-![Assistant SOC](docs/screenshots/soc-assistant.png)
+![Assistant SOC](Interface-web-de-l'assistant-SOC.png)
 
 *Chatbot d'assistance SOC avec réponses contextuelles basées sur le RAG.*
 
