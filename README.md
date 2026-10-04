@@ -19,6 +19,7 @@
 ## 📌 Table des Matières
 
 - [Vue d'ensemble](#-vue-densemble)
+- [Mon rôle dans le projet](#-mon-rôle-dans-le-projet)
 - [Problématique](#-problématique)
 - [Solution Proposée](#-solution-proposée)
 - [Architecture Technique](#️-architecture-technique)
@@ -53,6 +54,27 @@ La solution combine :
 - 🤖 **Intelligence Artificielle** pour assister l'analyse des incidents
 - 🧠 **RAG** pour exploiter des connaissances de cybersécurité
 - ⚡ **Automatisation des alertes** et du traitement des incidents
+
+---
+
+## 👩‍💻 Mon rôle dans le projet
+
+Dans le cadre de ce projet, j'ai participé à la conception et à la mise en œuvre de la plateforme DevSecOps, avec un focus particulier sur la sécurité du pipeline, l'observabilité et l'assistance SOC.
+
+### 🔧 Principales réalisations
+
+* 🏗️ **Conception de l'architecture** de la plateforme DevSecOps
+* 🔄 **Mise en place du pipeline CI/CD** avec intégration des contrôles de sécurité
+* 🔐 **Intégration des outils de sécurité** : SonarQube, OWASP Dependency-Check, npm audit, Trivy, Gitleaks, Checkov et OWASP ZAP
+* 🐳 **Conteneurisation et sécurisation** des applications avec Docker
+* 📊 **Mise en place de l'observabilité** avec Prometheus et Grafana
+* 📝 **Centralisation et analyse des logs** avec Filebeat et OpenSearch
+* 🚨 **Mise en place de la détection d'anomalies** basée sur Random Cut Forest
+* 🤖 **Développement de l'assistant SOC** avec FastAPI et intégration d'un LLM Mistral via Ollama
+* 🧠 **Mise en place du RAG** à partir de connaissances de cybersécurité et de MITRE ATT&CK
+* ⚠️ **Implémentation du risk scoring et de la corrélation d'événements**
+* ⚡ **Automatisation des alertes** avec n8n et Slack
+
 
 ---
 
